@@ -1,0 +1,20 @@
+{
+    "name": "protechmaster/google-recaptcha",
+    "description": "",
+    "authors": [
+        {
+            "name": "Rachid Rafia",
+            "email": "rrafiatech@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "5.0.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Protechmaster\\GoogleRecaptcha": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
