@@ -17,13 +17,14 @@ class GoogleRecaptcha {
         $this->private_key = config('GoogleRecaptcha.private_key');
         $this->errorMessage = config('GoogleRecaptcha.error_message');
         $this->verifyURL = config('GoogleRecaptcha.verify_api_url');
+        $this->position = config('GoogleRecaptcha.bootstrap_float_position');
     }
 
-    public function recaptchaField($error = '')
+    public function recaptchaField()
     {
-        if(!empty($error))
+        if(\Session::get('error'))
         {
-            return '<div class="g-recaptcha" data-sitekey="'.$this->public_key.'"></div>'. \Session::get($error);
+            return '<div class="g-recaptcha" data-sitekey="'.$this->public_key.'"></div>'. \Session::get('error');
         }
         return '<div class="g-recaptcha" data-sitekey="'.$this->public_key.'"></div><br>';
     }
@@ -34,7 +35,7 @@ class GoogleRecaptcha {
 
         if($json["success"]==false)
         {
-            throw new RecaptchaException($this->errorMessage);
+            throw new GoogleRecaptchaException($this->errorMessage);
         }
 
     }
