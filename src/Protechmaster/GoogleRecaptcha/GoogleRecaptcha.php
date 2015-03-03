@@ -1,6 +1,5 @@
 <?php namespace Protechmaster\GoogleRecaptcha;
 
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Input;
 
 class GoogleRecaptcha {
@@ -18,7 +17,7 @@ class GoogleRecaptcha {
         $this->private_key = config('GoogleRecaptcha.private_key');
         $this->errorMessage = config('GoogleRecaptcha.error_message');
         $this->verifyURL = config('GoogleRecaptcha.verify_api_url');
-        $this->position = config('GoogleRecaptcha.bootstrap_float_position');
+        $this->position = config('GoogleRecaptcha.bootstrap_float_class');
     }
 
     public function recaptchaField()
