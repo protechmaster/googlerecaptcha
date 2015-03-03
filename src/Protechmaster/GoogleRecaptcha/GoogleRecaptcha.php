@@ -9,6 +9,7 @@ class GoogleRecaptcha {
     protected $private_key;
     protected $verifyURL;
     public $errorMessage;
+    public $position;
 
 
     public function __construct()
@@ -24,9 +25,9 @@ class GoogleRecaptcha {
     {
         if(\Session::get('error'))
         {
-            return '<div class="g-recaptcha" data-sitekey="'.$this->public_key.'"></div>'. \Session::get('error');
+            return '<div class="g-recaptcha '.$this->position.'" data-sitekey="'.$this->public_key.'"></div>'. \Session::get('error');
         }
-        return '<div class="g-recaptcha" data-sitekey="'.$this->public_key.'"></div><br>';
+        return '<div class="g-recaptcha '.$this->position.'" data-sitekey="'.$this->public_key.'"></div><br>';
     }
 
     public function validate()
